@@ -112,24 +112,26 @@ USER root
 RUN chown -R ${NB_USER}:${NB_USER} /home/${NB_USER}/.ipython
 RUN chown -R ${NB_USER}:${NB_USER} /home/${NB_USER}/.jupyter
 
+# Quarto 설치
+RUN \
+  curl -s -o /home/${NB_USER}/quarto-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.335/quarto-1.2.335-linux-amd64.deb && \
+  gdebi /home/${NB_USER}/quarto-linux-amd64.deb
+
 # JupyterLab 환경 설정
 USER ${NB_USER}
 RUN echo "conda activate base" >> ~/.bashrc
 ENV PATH /home/${NB_USER}/mambaforge/bin:$PATH
 RUN /home/${NB_USER}/mambaforge/bin/jupyter-lab build
 
-# Quarto 설치
-RUN \
-  curl -s -o /home/${NB_USER}/quarto-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.335/quarto-1.2.335-linux-amd64.deb && \
-  gdebi /home/${NB_USER}/quarto-linux-amd64.deb
-
 # 필요없는 파일 삭제
+USER root
 RUN \
   rm /home/${NB_USER}/user-conda-requirements.txt && \
   rm /home/${NB_USER}/user-pip-requirements.txt && \
   rm /home/${NB_USER}/quarto-linux-amd64.deb
 
 # JupyterLab 시작
+USER ${NB_USER}
 EXPOSE 8888
 CMD ["mamba", "run", "-n", "base", "--no-capture-output", "jupyter-lab"]
 
