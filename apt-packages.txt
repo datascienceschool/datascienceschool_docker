@@ -8,6 +8,7 @@ fonts-nanum-coding
 fonts-nanum-extra
 fonts-unfonts-core
 fonts-unfonts-extra
+gdebi-core
 git
 graphviz
 htop
