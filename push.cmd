@@ -1,0 +1,1 @@
+docker push datascienceschool/datascienceschool_docker:latest
