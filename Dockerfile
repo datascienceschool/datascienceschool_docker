@@ -115,7 +115,7 @@ RUN chown -R ${NB_USER}:${NB_USER} /home/${NB_USER}/.jupyter
 # Quarto 설치
 RUN \
   curl -s -o /home/${NB_USER}/quarto-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.335/quarto-1.2.335-linux-amd64.deb && \
-  gdebi /home/${NB_USER}/quarto-linux-amd64.deb
+  gdebi -n /home/${NB_USER}/quarto-linux-amd64.deb
 
 # JupyterLab 환경 설정
 USER ${NB_USER}
