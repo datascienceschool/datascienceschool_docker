@@ -121,7 +121,7 @@ RUN /home/${NB_USER}/mambaforge/bin/jupyter-lab build
 # Quarto 설치
 RUN \
   curl -s -o /home/${NB_USER}/quarto-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.335/quarto-1.2.335-linux-amd64.deb && \
-  gdebi quarto-linux-amd64.deb
+  gdebi /home/${NB_USER}/quarto-linux-amd64.deb
 
 # 필요없는 파일 삭제
 RUN \
