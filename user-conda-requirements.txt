@@ -5,7 +5,7 @@ ghp-import
 ipython
 ipywidgets
 jupyter_server
-jupyter-book==0.12.3
+#jupyter-book==0.12.3
 jupyterhub
 jupyterlab
 jupyterlab_widgets
