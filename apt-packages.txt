@@ -37,5 +37,7 @@ texlive-xetex
 tmux
 tree
 tzdata
+unzip
 vim
 wget
+zip

@@ -18,14 +18,18 @@ RUN \
   # Node.js 설치
   curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
   apt-get install -yq nodejs && \
-  # TTF 폰트 설치
+  # 폰트 설치
   echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections && \
   apt-get install -yq ttf-mscorefonts-installer && \
+  cd /usr/share/fonts && \
+  wget -q https://github.com/naver/d2codingfont/releases/download/VER1.3.2/D2Coding-Ver1.3.2-20180524.zip && \
+  unzip D2Coding-Ver1.3.2-20180524.zip && \
   mkdir -p /usr/share/fonts/opentype && \
   chmod a+rwx -R /usr/share/fonts/* && \
   fc-cache -fv && \
   # 필요없는 파일 삭제
   rm -f /apt-packages.txt && \
+  rm -f /usr/share/fonts/D2Coding-Ver1.3.2-20180524.zip && \
   apt-get remove -yq --purge tex.\*-doc$ && \
   apt-get clean -yq  && \
   rm -rf /var/lib/apt/lists/*
