@@ -17,6 +17,7 @@ language-pack-ko
 less
 libcurl4-openssl-dev
 libssl-dev
+lmodern
 locales
 man-db
 net-tools
