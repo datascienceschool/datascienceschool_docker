@@ -70,8 +70,9 @@ STOPSIGNAL SIGRTMIN+3
 COPY policy.xml /etc/ImageMagick-6/policy.xml
 
 # Quarto 설치
+ENV QUARTO_VER=1.2.475
 RUN \
-  curl -s -o /quarto-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.335/quarto-1.2.335-linux-amd64.deb && \
+  curl -s -o /quarto-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v$QUARTO_VER/quarto-$QUARTO_VER-linux-amd64.deb && \
   gdebi -n /quarto-linux-amd64.deb && \
   rm /quarto-linux-amd64.deb
 
