@@ -1,3 +1,4 @@
 charset_normalizer==2.1.1  # aiohttp 버전이 4 대로 올라가기 전까지는 필요
+jupyter_scheduler
 pandas_ta
 git+https://github.com/joelkim/ipython-tikzmagic.git
