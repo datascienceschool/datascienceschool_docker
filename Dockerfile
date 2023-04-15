@@ -87,7 +87,7 @@ USER ${NB_USER}
 WORKDIR /home/${NB_USER}
 
 # 파이썬 설치
-ENV MAMBA_VER=22.11.1-4
+ENV MAMBA_VER=23.1.0-1
 
 RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib:/usr/lib:/usr/local/lib && \
   curl -s -o /home/${NB_USER}/Mambaforge-${MAMBA_VER}-Linux-x86_64.sh \
