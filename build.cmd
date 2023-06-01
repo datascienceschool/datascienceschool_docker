@@ -6,7 +6,7 @@ set IMAGE_NAME=datascienceschool/datascienceschool_docker
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 ECHO Stop Container...
-SET cmd='docker ps -aqf "name=%CONTAINER_NAME%"'
+SET cmd='docker container ls -af "name=%CONTAINER_NAME%"'
 FOR /f %%i in (%cmd%) DO set containerId=%%i
 if "%containerId%" == "" (
   echo No container %CONTAINER_NAME% running.
